@@ -1,3 +1,5 @@
+import { useAuth } from "@/lib/auth-context";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import { KeyboardAvoidingView, Platform, View, StyleSheet } from "react-native";
 import { TextInput, Text, Button, useTheme } from "react-native-paper";
@@ -9,6 +11,9 @@ export default function AuthScreen() {
   const [error, setError] = useState<string | null>("")
 
   const theme = useTheme()
+  const router = useRouter()
+
+  const { signIn, signUp } = useAuth()
 
   const handleAuth = async() => {
     if(!email || !password) {
@@ -22,6 +27,22 @@ export default function AuthScreen() {
     }
 
     setError(null)
+
+    if(isSignUp) {
+      await signUp(email, password)
+      if (error) {
+        setError(error)
+        return
+      }
+    }else {
+      const error = await signIn(email,password)
+      if (error) {
+        setError(error)
+        return
+      }
+
+      router.replace('/')
+    }
 
   }
 
@@ -46,14 +67,16 @@ export default function AuthScreen() {
           keyboardType="email-address"
           placeholder="example@gmail.com"
           mode="outlined"
+          onChangeText={setEmail}
         />
 
         <TextInput
           style={style.input}
           label="Password"
           autoCapitalize="none"
-          keyboardType="email-address"
+          secureTextEntry
           mode="outlined"
+          onChangeText={setPassword}
         />
 
         {error && <Text style={{ color: theme.colors.error }}>{error}</Text>}
