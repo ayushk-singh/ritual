@@ -41,7 +41,7 @@ export default function AuthScreen() {
         return
       }
 
-      router.replace('/')
+      router.replace('/habit')
     }
 
   }
