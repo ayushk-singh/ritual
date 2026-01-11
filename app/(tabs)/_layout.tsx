@@ -32,9 +32,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="pomodoro"
+        name="timer"
         options={{
-          title: "Pomodoro",
+          title: "Timer",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="clock-check-outline" size={size} color={color} />
           ),
