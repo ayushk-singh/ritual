@@ -149,7 +149,6 @@ export default function Timer() {
       <View style={styles.timerView}>
         <IconButton
           icon="plus"
-          iconColor="#FAFCFC"
           size={28}
           mode="contained"
           style={styles.timerIconButton}
@@ -175,7 +174,6 @@ export default function Timer() {
 
         <IconButton
           icon="minus"
-          iconColor="#FAFCFC"
           size={28}
           mode="contained"
           style={styles.timerIconButton}
@@ -195,7 +193,6 @@ export default function Timer() {
 
       <View style={styles.buttonView}>
         <Button
-          textColor="#FAFCFC"
           style={styles.button}
           onPress={startTimer}
           disabled={isRunning}
@@ -207,7 +204,6 @@ export default function Timer() {
         <Button
           style={styles.button}
           onPress={pauseTimer}
-          textColor="#FAFCFC"
           mode="contained"
         >
           Pause
@@ -216,7 +212,6 @@ export default function Timer() {
         <Button
           style={styles.button}
           onPress={resetTimer}
-          textColor="#FAFCFC"
           mode="contained"
         >
           Reset
@@ -231,7 +226,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#0E0D1D",
   },
   timerView: {
     flexDirection: "row",
@@ -241,20 +235,17 @@ const styles = StyleSheet.create({
   timer: {
     fontSize: 52,
     fontWeight: "bold",
-    color: "#FAFCFC",
   },
   timerIconButton: {
     borderRadius: 999,
     width: 50,
     height: 50,
     marginHorizontal: 20,
-    backgroundColor: "#252533",
   },
   buttonView: {
     flexDirection: "row",
   },
   button: {
     margin: 12,
-    backgroundColor: "#DB0138",
   },
 });
